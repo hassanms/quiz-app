@@ -5,7 +5,7 @@ import QuestionCard from './components/QuestionCard';
 // Types
 import { Difficulty, QuestionState } from './API';
 // Styles
-import { GlobalStyle } from './App.styles';
+import { GlobalStyle, Wrapper } from './App.styles';
 
 export type AnswerObject = {
   question: string;
@@ -70,8 +70,11 @@ function App() {
   return (
     <>
     <GlobalStyle />
-    <div className="App">
-      <h1>Take the trivia now!</h1>
+    <Wrapper>
+      {
+        gameOver || userAnswers.length === TOTAL_QUESTIONS ? <h1>Take the trivia now!</h1>
+        : <h1>Good Luck...</h1>
+      }
       { 
       gameOver || userAnswers.length === TOTAL_QUESTIONS ? 
       <button className="start" onClick={startTrivia}>
@@ -80,7 +83,7 @@ function App() {
       : null
       }
       {!gameOver ? <p className="score">Score: {score}</p> : null}
-      {loading ? <p>Loading Questions ...</p> : null}
+      {loading ? <p className="loading">Loading Questions ...</p> : null}
       {!loading && !gameOver && (
         <QuestionCard 
           questionNr={number + 1}
@@ -96,7 +99,7 @@ function App() {
           Next Question
         </button>
       ) : null}
-    </div>
+    </Wrapper>
     </>
   );
 }
