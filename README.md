@@ -2,11 +2,15 @@
 
 A trivia app based on React via Typescript
 
+## API
+
+[Open Trivia DB](https://opentdb.com/api_config.php)
+
 ## Live Demo
 
 [http://quiz-app-hassanms.surge.sh/](http://quiz-app-hassanms.surge.sh/)
 
-## Available Scripts
+## How to use
 
 ### `git clone https://github.com/hassanms/quiz-app.git`
 
